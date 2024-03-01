@@ -1,0 +1,62 @@
+Sure, here's the modified JavaScript code to accommodate the class names you specified:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Click</title>
+<style>
+  .image-container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  .image {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+  }
+  .big-image {
+    width: 300px;
+    height: 300px;
+    border: 1px solid black;
+    margin-top: 20px;
+  }
+</style>
+</head>
+<body>
+
+<div class="image-container">
+    <div class="here there"></div>
+  <img class="image image1" src="10.jpg" alt="Image 1">
+  <img class="image image1" src="11.jpg" alt="Image 2">
+  <img class="image image1" src="12.jpg" alt="Image 3">
+  <img class="image image1" src="14.jpg" alt="Image 4">
+</div>
+
+<div class="big-image"><img src="18.jpg" alt=""></div>
+
+<script>
+  // Get references to all the images
+  const images = document.querySelectorAll('.image');
+  // Get reference to the main image container
+  const mainImage = document.querySelector('.big-image');
+
+  // Loop through each image and add click event listener
+  images.forEach(image => {
+    image.addEventListener('click', () => {
+      // Set the source of the clicked image as the source of the main image
+      mainImage.innerHTML = '';
+      const clickedImage = image.cloneNode(true);
+      mainImage.appendChild(clickedImage);
+    });
+  });
+</script>
+
+</body>
+</html>
+```
+
+In this code, I've changed the class name of the main image container to `big-image` and the class name of the other images to `image1`. Now, when you click on any image with the class `image1`, it replaces the content of the element with the class `big-image`.
